@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cardioid</title>
+	<script src="p5.min.js"></script>
+
+	<script>
+		let f = 1;
+		let size = 500;
+		let llen = size * 0.9;
+
+		function setup() {
+			createCanvas(size*2, size*2);
+			strokeWeight(0.5);
+			//stroke(0,0,80);
+		}
+
+		function draw() {
+			background(0);
+			translate(size, size);
+
+   			red   = Math.sin(f+TWO_PI*.333) * 127 + 128;
+   			green = Math.sin(f+TWO_PI*.666) * 127 + 128;
+   			blue  = Math.sin(f+TWO_PI*.999) * 127 + 128;
+   			stroke(red,green,blue);
+
+			for(let i=0; i<=TWO_PI; i+=PI/90) {
+				line(llen*cos(i),llen*sin(i),llen*cos(i*f),llen*sin(i*f));
+			}
+		  	f+=PI/360;
+
+
+		}	
+
+	</script>
+
+	<style>
+		body { background-color: #000; }
+	</style>
+</head>
+<body>
+</body>
+</html>
